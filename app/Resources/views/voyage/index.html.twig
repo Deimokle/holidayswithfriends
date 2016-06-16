@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Voyage list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pays</th>
+                <th>Ville</th>
+                <th>Adrdepart</th>
+                <th>Adrarriver</th>
+                <th>Datedepart</th>
+                <th>Tempssejour</th>
+                <th>Prixfood</th>
+                <th>Prixloge</th>
+                <th>Locomotion</th>
+                <th>Commentaire</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voyage in voyages %}
+            <tr>
+                <td><a href="{{ path('voyage_show', { 'id': voyage.id }) }}">{{ voyage.id }}</a></td>
+                <td>{{ voyage.pays }}</td>
+                <td>{{ voyage.ville }}</td>
+                <td>{{ voyage.adrDepart }}</td>
+                <td>{{ voyage.adrArriver }}</td>
+                <td>{% if voyage.dateDepart %}{{ voyage.dateDepart|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ voyage.tempsSejour }}</td>
+                <td>{{ voyage.prixFood }}</td>
+                <td>{{ voyage.prixLoge }}</td>
+                <td>{% if voyage.locomotion %}{{ voyage.locomotion|join(', ') }}{% endif %}</td>
+                <td>{{ voyage.commentaire }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('voyage_show', { 'id': voyage.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('voyage_edit', { 'id': voyage.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('voyage_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

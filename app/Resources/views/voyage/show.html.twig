@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Voyage</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ voyage.id }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ voyage.pays }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ voyage.ville }}</td>
+            </tr>
+            <tr>
+                <th>Adrdepart</th>
+                <td>{{ voyage.adrDepart }}</td>
+            </tr>
+            <tr>
+                <th>Adrarriver</th>
+                <td>{{ voyage.adrArriver }}</td>
+            </tr>
+            <tr>
+                <th>Datedepart</th>
+                <td>{% if voyage.dateDepart %}{{ voyage.dateDepart|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Tempssejour</th>
+                <td>{{ voyage.tempsSejour }}</td>
+            </tr>
+            <tr>
+                <th>Prixfood</th>
+                <td>{{ voyage.prixFood }}</td>
+            </tr>
+            <tr>
+                <th>Prixloge</th>
+                <td>{{ voyage.prixLoge }}</td>
+            </tr>
+            <tr>
+                <th>Locomotion</th>
+                <td>{% if voyage.locomotion %}{{ voyage.locomotion|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ voyage.commentaire }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('voyage_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('voyage_edit', { 'id': voyage.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

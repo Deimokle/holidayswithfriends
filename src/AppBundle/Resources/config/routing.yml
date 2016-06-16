@@ -1,0 +1,7 @@
+app_groupe:
+    resource: "@AppBundle/Resources/config/routing/groupe.yml"
+    prefix:   /groupe
+
+app_voyage:
+    resource: "@AppBundle/Resources/config/routing/voyage.yml"
+    prefix:   /voyage

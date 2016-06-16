@@ -1,0 +1,52 @@
+AppBundle\Entity\Voyage:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\VoyageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        pays:
+            type: string
+            length: 255
+        ville:
+            type: string
+            length: 255
+        adrDepart:
+            type: string
+            length: 255
+            column: adr_depart
+        adrArriver:
+            type: string
+            length: 255
+            column: adr_arriver
+        dateDepart:
+            type: datetime
+            column: date_depart
+        tempsSejour:
+            type: smallint
+            column: temps_sejour
+        prixFood:
+            type: decimal
+            precision: '9'
+            scale: '0'
+            column: prix_food
+        prixLoge:
+            type: decimal
+            precision: '9'
+            scale: '0'
+            column: prix_loge
+        locomotion:
+            type: array
+        commentaire:
+            type: text
+    manyToOne:
+      voyageiduser:
+        targetEntity: UserBundle\Entity\User
+        joinColumn:
+          name: voyage_iduser
+          referencedColumnName: id
+    lifecycleCallbacks: {  }
