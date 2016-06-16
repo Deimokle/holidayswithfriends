@@ -44,15 +44,9 @@
                 </div>
             </nav>
         </header>
+    </body>
+</html>
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-    {% block javascripts %}
-        <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
-        <link rel="stylesheet" type="text/css" href="{{ asset('js/bootstrap.min.js') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('js/jquery-1.9.1.min.js') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('js/jssor.slider.min.js') }}" />
-    {% endblock %}
 
-</body>
-</html>
