@@ -2,6 +2,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+   {% block body %}
     <p>Username {{ form_widget(form.username) }}</p>
     {{ form_errors(form.username) }}
 
@@ -14,4 +15,4 @@
     <div>
         <input type="submit" value="{{ 'registration.submit'|trans }}" />
     </div>
-{{ form_end(form) }}
+   {% endblock %}

@@ -5,8 +5,48 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/hover.css') }}" media="all" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/slider.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('js/bootstrap.min.js') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('js/jquery-1.9.1.min.js') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('js/jssor.slider.min.js') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}"/>
     </head>
     <body>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Menu</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="nav-logo navbar-brand" href="">
+                            <img src="{{ asset('images/logo-holidays.png')}}" alt="logo-holidays-with-friend">
+                        </a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{# {{ path('fos_user_registration_register') }} #}"><span class="glyphicon glyphicon-user"></span>Inscription</a></li>
+                                <li><a href="{# {{ path('fos_user_security_login') }} #}"><span class="glyphicon glyphicon-log-in"></span>Se Connecter</a></li>
+                            </ul>
+                        {% elseif is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href=""><span class="glyphicon glyphicon-dashboard"></span>Accueil </a>
+                                    <a href=""><span class="glyphicon glyphicon-dashboard"></span>Dasboard </a>
+                                </li>
+                                <li><a href=""><span class="glyphicon glyphicon-log-out"></span>Se deconnecter</a></li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
