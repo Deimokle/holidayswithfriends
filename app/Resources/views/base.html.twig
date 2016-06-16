@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/hover.css') }}" media="all" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/slider.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('js/bootstrap.min.js') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('js/jquery-1.9.1.min.js') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('js/jssor.slider.min.js') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}"/>
     </head>
     <body>
@@ -49,5 +46,13 @@
         </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-    </body>
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('js/bootstrap.min.js') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('js/jquery-1.9.1.min.js') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('js/jssor.slider.min.js') }}" />
+    {% endblock %}
+
+</body>
 </html>
