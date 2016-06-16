@@ -44,9 +44,9 @@ AppBundle\Entity\Voyage:
         commentaire:
             type: text
     manyToOne:
-      voyageiduser:
+      user:
         targetEntity: UserBundle\Entity\User
         joinColumn:
-          name: voyage_iduser
+          name: user_voyage
           referencedColumnName: id
     lifecycleCallbacks: {  }

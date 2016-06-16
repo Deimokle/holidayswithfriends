@@ -52,3 +52,4 @@ class Groupe
         return $this->nom;
     }
 }
+
